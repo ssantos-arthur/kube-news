@@ -15,7 +15,7 @@ spec:
         - name: postgre
           image: postgres:15.0
           ports:
-          - containerPort: 5433
+          - containerPort: 5432
           env:
           - name: POSTGRES_DB
             value: "kubenews"
@@ -23,9 +23,7 @@ spec:
             value: "kubenews"
           - name: POSTGRES_PASSWORD
             value: "Pg#123"
-
 ---
-
 apiVersion: v1 
 kind: Service 
 metadata:
@@ -34,7 +32,6 @@ spec:
   selector: 
     app: postgre
   ports: 
-    - port: 5433
+    - port: 5432
   type: ClusterIP
-
 ---
