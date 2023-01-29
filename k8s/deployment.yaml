@@ -5,11 +5,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: postgres
+      app: postgre
   template:
     metadata:
       labels:
-        app: postgres
+        app: postgre
     spec:
       containers:
         - name: postgre
