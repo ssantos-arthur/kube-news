@@ -64,3 +64,18 @@ spec:
             value: "Pg#123"
           - name: DB_HOST
             value: "postgre"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+spec:  
+  selector: 
+    app: web
+  ports: 
+    - port: 80
+      targetPort: 8080
+      nodePort: 30000
+  type: NodePort
