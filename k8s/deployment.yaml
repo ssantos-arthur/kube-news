@@ -36,3 +36,29 @@ spec:
       protocol: TCP
   type: ClusterIP
 ---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: techsantosarthur/kube-news:v1
+          ports:
+          - containerPort: 8080
+          env:
+          - name: POSTGRES_DB
+            value: "kubenews"
+          - name: POSTGRES_USER
+            value: "kubenews"
+          - name: POSTGRES_PASSWORD
+            value: "Pg#123"
