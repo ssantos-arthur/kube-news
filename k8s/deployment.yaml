@@ -42,7 +42,6 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 4
   selector:
     matchLabels:
       app: web
@@ -53,7 +52,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: techsantosarthur/kube-news:v2
+          image: techsantosarthur/kube-news:v1
           ports:
           - containerPort: 8080
           env:
@@ -65,9 +64,7 @@ spec:
             value: "Pg#123"
           - name: DB_HOST
             value: "postgre"
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
